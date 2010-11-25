@@ -2,10 +2,10 @@
 #include <QDebug>
 
 
-server::server(QString host, quint16 port)
+server::server(QString host, quint16 p)
 {
 
-    udpSocket.bind(QHostAddress(host),port);
+    udpSocket.bind(QHostAddress(host),p);
     connect(&udpSocket, SIGNAL(readyRead()),
             this, SLOT(processPendingDatagrams()));
     qDebug() << "Server started ::: " << udpSocket.localAddress() << udpSocket.localPort();
